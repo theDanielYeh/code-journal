@@ -1,0 +1,32 @@
+header {
+  background-color: #6c2dc7;
+}
+
+header > .container {
+  color: white;
+  background-color: #6c2dc7;
+}
+
+.header {
+  font-weight: 500;
+}
+
+body {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: sans-serif, Arial, Helvetica;
+  background-color: rgb(243, 243, 243);
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  border-radius: 10px;
+  resize: none;
+}
+
+.submitbutton > input {
+  font-size: 1.25rem;
+  background-color: #6c2dc7;
+  color: white;
+}
