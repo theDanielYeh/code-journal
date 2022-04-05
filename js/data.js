@@ -1,5 +1,5 @@
 /* exported data */
-
+// localStorage.clear();
 var data = {
   view: 'entry-form',
   entries: [],
@@ -7,29 +7,15 @@ var data = {
   nextEntryId: 1
 };
 
-var $titleInput = document.querySelector('#title');
-var $photoURL = document.querySelector('#photo-url');
-var $notesInput = document.querySelector('#notes');
-var $image = document.querySelector('img');
-var $form = document.querySelector('form');
+// var $motherIsListening = document.querySelector('form');
+var previousdataJSON = localStorage.getItem('JS-local-storage');
+if (previousdataJSON !== null) {
+  data = JSON.parse(previousdataJSON);
+}
 
-var $motherIsListening = document.querySelector('form');
-$motherIsListening.addEventListener('submit', recordAllInputs);
+window.addEventListener('beforeunload', recordAllInputs);
 
 function recordAllInputs(event) {
-  var newObject = {
-    EntryID: data.nextEntryId,
-    Title: $titleInput.value,
-    PhotoURL: $photoURL.value,
-    Notes: $notesInput.value
-  };
-  data.nextEntryId = ++data.nextEntryId;
-  data.entries.unshift(newObject);
-
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('JS-local-storage', dataJSON);
-
-  event.preventDefault();
-  $form.reset();
-  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
