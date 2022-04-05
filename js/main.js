@@ -34,3 +34,42 @@ function resetForm(event) {
   $form.reset();
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
+// Issue 2 Below
+
+// eslint-disable-next-line no-unused-vars
+function entryToDOM(entryObject) {
+  var $ul = document.querySelector('ul');
+  var $li = document.createElement('li');
+  $ul.appendChild($li);
+
+  var $div1 = document.createElement('div');
+  $div1.setAttribute('class', 'row');
+  $li.appendChild($div1);
+
+  var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'column-half');
+  $div1.appendChild($div2);
+
+  var $img = document.createElement('img');
+  $img.setAttribute('src', '');
+  $div2.appendChild($img);
+
+  var $div3 = document.createElement('div');
+  $div2.setAttribute('class', 'column-half');
+  $div1.appendChild($div3);
+
+  var $div4 = document.createElement('div');
+  $div4.setAttribute('class', 'half-row');
+  $div3.appendChild($div4);
+
+  var $div5 = document.createElement('div');
+  $div5.setAttribute('class', 'half-row');
+  $div3.appendChild($div5);
+
+}
+
+// window.addEventListener('DOMContentLoaded', createDOM) {
+//   for (var i = 0; i < data.length; i++) {
+
+//   }
+// }
