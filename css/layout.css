@@ -43,8 +43,11 @@
   justify-content: right;
 }
 
-h1 {
-  text-align: center;
+.newbutton {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-top: 0;
 }
 
 img {
@@ -70,4 +73,16 @@ input,
 textarea {
   margin-top: 1rem;
   padding: 0.5rem;
+}
+
+.newbutton > input {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+.split-half {
+  width: 50%;
 }
