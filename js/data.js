@@ -11,6 +11,7 @@ var $titleInput = document.querySelector('#title');
 var $photoURL = document.querySelector('#photo-url');
 var $notesInput = document.querySelector('#notes');
 var $image = document.querySelector('img');
+var $form = document.querySelector('form');
 
 var $motherIsListening = document.querySelector('form');
 $motherIsListening.addEventListener('submit', recordAllInputs);
@@ -29,8 +30,6 @@ function recordAllInputs(event) {
   localStorage.setItem('JS-local-storage', dataJSON);
 
   event.preventDefault();
-  $photoURL.value = '';
-  $titleInput.value = '';
-  $notesInput.value = '';
+  $form.reset();
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
