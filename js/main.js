@@ -76,6 +76,7 @@ function entryToDOM(entryObject) {
   var $img7 = document.createElement('img');
   $img7.setAttribute('class', 'editbuttons');
   $img7.setAttribute('src', '/images/Pencil.png');
+  $img7.setAttribute('id', entryObject.EntryID);
   $button6.appendChild($img7);
 
   var $div8 = document.createElement('div');
@@ -119,8 +120,16 @@ function changeView(event) {
 $ul.addEventListener('click', switchToEntryView);
 
 function switchToEntryView(event) {
+
+  for (var j = 0; j < data.entries.length; j++) {
+    if (JSON.stringify(data.entries[j].EntryID) === event.target.getAttribute('id')) {
+      data.editing = data.entries[j];
+      // console.log(data.editing);
+    }
+  }
   if (event.target.matches('img.editbuttons')) {
     $entryForm.className = 'container';
     $entries.className = 'container entries-container hidden';
   }
+
 }
