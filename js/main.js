@@ -36,7 +36,6 @@ function resetForm(event) {
 }
 // Issue 2 Below
 
-// eslint-disable-next-line no-unused-vars
 function entryToDOM(entryObject) {
   var $ul = document.querySelector('ul');
   var $li = document.createElement('li');
@@ -51,7 +50,7 @@ function entryToDOM(entryObject) {
   $div1.appendChild($div2);
 
   var $img = document.createElement('img');
-  $img.setAttribute('src', '');
+  $img.setAttribute('src', entryObject.PhotoURL);
   $div2.appendChild($img);
 
   var $div3 = document.createElement('div');
@@ -60,16 +59,21 @@ function entryToDOM(entryObject) {
 
   var $div4 = document.createElement('div');
   $div4.setAttribute('class', 'half-row');
+  $div4.textContent = entryObject.Title;
   $div3.appendChild($div4);
 
   var $div5 = document.createElement('div');
   $div5.setAttribute('class', 'half-row');
+  $div5.setAttribute('style', 'font-weight: normal; font-size: 1rem');
+  $div5.textContent = entryObject.Notes;
   $div3.appendChild($div5);
 
 }
 
-// window.addEventListener('DOMContentLoaded', createDOM) {
-//   for (var i = 0; i < data.length; i++) {
+window.addEventListener('DOMContentLoaded', createDOM);
 
-//   }
-// }
+function createDOM(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    entryToDOM(data.entries[i]);
+  }
+}
