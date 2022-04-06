@@ -130,6 +130,11 @@ function switchToEntryView(event) {
   if (event.target.matches('img.editbuttons')) {
     $entryForm.className = 'container';
     $entries.className = 'container entries-container hidden';
+    $titleInput.value = data.editing.Title;
+    $photoURL.value = data.editing.PhotoURL;
+    updateImage();
+    $notesInput.value = data.editing.Notes;
+    // console.log(data.editing.Notes);
   }
 
 }
