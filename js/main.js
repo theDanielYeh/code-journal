@@ -38,7 +38,7 @@ function resetForm(event) {
   $entryForm.className = 'container hidden';
   $entries.className = 'container entries-container';
 }
-// Issue 2 Below
+// Issue #2 Below //
 var $ul = document.querySelector('ul');
 var $li = document.createElement('li');
 
@@ -84,12 +84,6 @@ function entryToDOM(entryObject) {
   $div8.textContent = entryObject.Notes;
   $div3.appendChild($div8);
 
-  // var $div9 = document.createElement('div');
-  // $div5.setAttribute('class', 'half-row');
-  // $div5.setAttribute('style', 'font-weight: normal; font-size: 1rem');
-  // $div5.textContent = entryObject.Notes;
-  // $div3.appendChild($div5);
-
   return $li;
 }
 
@@ -118,4 +112,15 @@ function changeView(event) {
     $entries.className = 'container entries-container hidden';
   }
 
+}
+
+// Issue #3 Below //
+
+$ul.addEventListener('click', switchToEntryView);
+
+function switchToEntryView(event) {
+  if (event.target.matches('img.editbuttons')) {
+    $entryForm.className = 'container';
+    $entries.className = 'container entries-container hidden';
+  }
 }
