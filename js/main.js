@@ -122,7 +122,7 @@ $ul.addEventListener('click', switchToEntryView);
 function switchToEntryView(event) {
 
   for (var j = 0; j < data.entries.length; j++) {
-    if (JSON.stringify(data.entries[j].EntryID) === event.target.getAttribute('id')) {
+    if (data.entries[j].EntryID === parseInt(event.target.getAttribute('id'))) {
       data.editing = data.entries[j];
       // console.log(data.editing);
     }
