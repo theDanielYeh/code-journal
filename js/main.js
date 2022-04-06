@@ -1,7 +1,8 @@
 /* global data */
 /* exported data */
+
 var $photoURL = document.querySelector('#photo-url');
-var $image = document.querySelector('img');
+var $image = document.querySelector('#imgdisplay');
 $photoURL.addEventListener('input', updateImage);
 
 function updateImage(event) {
@@ -56,19 +57,38 @@ function entryToDOM(entryObject) {
   $div2.appendChild($img);
 
   var $div3 = document.createElement('div');
-  $div2.setAttribute('class', 'column-half');
+  $div3.setAttribute('class', 'column-half');
   $div1.appendChild($div3);
 
   var $div4 = document.createElement('div');
-  $div4.setAttribute('class', 'half-row');
-  $div4.textContent = entryObject.Title;
+  $div4.setAttribute('class', 'flex');
   $div3.appendChild($div4);
 
   var $div5 = document.createElement('div');
   $div5.setAttribute('class', 'half-row');
-  $div5.setAttribute('style', 'font-weight: normal; font-size: 1rem');
-  $div5.textContent = entryObject.Notes;
-  $div3.appendChild($div5);
+  $div5.textContent = entryObject.Title;
+  $div4.appendChild($div5);
+
+  var $button6 = document.createElement('button');
+  $button6.setAttribute('class', 'split-quarter-flex');
+  $div4.appendChild($button6);
+
+  var $img7 = document.createElement('img');
+  $img7.setAttribute('class', 'editbuttons');
+  $img7.setAttribute('src', '/images/Pencil.png');
+  $button6.appendChild($img7);
+
+  var $div8 = document.createElement('div');
+  $div8.setAttribute('class', 'half-row');
+  $div8.setAttribute('style', 'font-weight: normal; font-size: 1rem');
+  $div8.textContent = entryObject.Notes;
+  $div3.appendChild($div8);
+
+  // var $div9 = document.createElement('div');
+  // $div5.setAttribute('class', 'half-row');
+  // $div5.setAttribute('style', 'font-weight: normal; font-size: 1rem');
+  // $div5.textContent = entryObject.Notes;
+  // $div3.appendChild($div5);
 
   return $li;
 }
