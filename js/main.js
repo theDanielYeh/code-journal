@@ -30,7 +30,72 @@ function resetForm(event) {
   };
   data.nextEntryId = ++data.nextEntryId;
   data.entries.unshift(newObject);
+  $ul.unshift(entryToDOM(newObject));
   event.preventDefault();
   $form.reset();
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $entryForm.className = 'container hidden';
+  $entries.className = 'container entries-container';
+}
+// Issue 2 Below
+var $ul = document.querySelector('ul');
+var $li = document.createElement('li');
+
+function entryToDOM(entryObject) {
+
+  var $div1 = document.createElement('div');
+  $div1.setAttribute('class', 'row');
+  $li.appendChild($div1);
+
+  var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'column-half');
+  $div1.appendChild($div2);
+
+  var $img = document.createElement('img');
+  $img.setAttribute('src', entryObject.PhotoURL);
+  $div2.appendChild($img);
+
+  var $div3 = document.createElement('div');
+  $div2.setAttribute('class', 'column-half');
+  $div1.appendChild($div3);
+
+  var $div4 = document.createElement('div');
+  $div4.setAttribute('class', 'half-row');
+  $div4.textContent = entryObject.Title;
+  $div3.appendChild($div4);
+
+  var $div5 = document.createElement('div');
+  $div5.setAttribute('class', 'half-row');
+  $div5.setAttribute('style', 'font-weight: normal; font-size: 1rem');
+  $div5.textContent = entryObject.Notes;
+  $div3.appendChild($div5);
+
+  return $li;
+}
+
+window.addEventListener('DOMContentLoaded', createDOM);
+
+function createDOM(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    entryToDOM(data.entries[i]);
+    $ul.appendChild($li);
+  }
+}
+
+var $body = document.querySelector('body');
+$body.addEventListener('click', changeView);
+var $entryForm = document.querySelector('#entry-form');
+var $entries = document.querySelector('#entries');
+
+function changeView(event) {
+  if (event.target.matches('#entries-anchor')) {
+    $entryForm.className = 'container hidden';
+    $entries.className = 'container entries-container';
+  }
+
+  if (event.target.matches('#newbutton')) {
+    $entryForm.className = 'container';
+    $entries.className = 'container entries-container hidden';
+  }
+
 }
