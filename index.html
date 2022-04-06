@@ -17,12 +17,12 @@
 <body>
   <header>
     <div class="container headcontainer">
-      <div class="header">Code Journal <span>Entries</span></div>
+      <div class="header">Code Journal <span><a href="#" id="entries-anchor">Entries</a></span></div>
 
     </div>
   </header>
   <main>
-    <div class="container" data-view="entry-form">
+    <div class="container hidden" id="entry-form" data-view="entry-form">
       <form action="">
         <div class="row">
           <div class="column-full">
@@ -62,13 +62,13 @@
       </form>
     </div>
     <!-- Starting Issue #2 Below -->
-    <div class="container entries-container" data-view="entries">
+    <div class="container entries-container" id="entries" data-view="entries">
       <div class="row">
         <div class="column-half split-half">
           <h1>Entries</h1>
         </div>
         <div class="column-half newbutton split-half">
-          <input type="submit" value="NEW">
+          <input type="submit" id="newbutton" value="NEW">
         </div>
       </div>
       <ul>

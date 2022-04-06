@@ -46,3 +46,8 @@ textarea {
   background-color: #6c2dc7;
   color: white;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
