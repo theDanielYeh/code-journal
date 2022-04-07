@@ -18,4 +18,5 @@ window.addEventListener('beforeunload', recordAllInputs);
 function recordAllInputs(event) {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('JS-local-storage', dataJSON);
+
 }
