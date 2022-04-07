@@ -154,6 +154,8 @@ function changeView(event) {
     $entries.className = 'container entries-container hidden';
     var $updateEditToHeader = document.querySelector('#onlyheader');
     $updateEditToHeader.textContent = 'New Entry';
+    var $hideDeleteButton = document.querySelector('#deletebutton');
+    $hideDeleteButton.className = 'hidden';
   }
 
 }
@@ -183,6 +185,8 @@ function switchToEntryView(event) {
   }
   var $updateHeaderToEdit = document.querySelector('#onlyheader');
   $updateHeaderToEdit.textContent = 'Edit Entry';
+  var $showDeleteButton = document.querySelector('#deletebutton');
+  $showDeleteButton.className = '';
 
   function $prepopulate(object) {
 

@@ -48,6 +48,17 @@ span {
 .submitbutton {
   display: flex;
   justify-content: right;
+  align-items: center;
+}
+
+.column-quarter {
+  width: 50%;
+}
+
+.deletebutton {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 .newbutton {
@@ -111,4 +122,12 @@ img.editbuttons {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+#deletebutton {
+  border: none;
+  color: red;
+  text-decoration: underline;
+  background: none;
+  font-size: 1rem;
 }
