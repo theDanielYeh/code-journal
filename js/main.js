@@ -19,11 +19,10 @@ var $form = document.querySelector('form');
 var $titleInput = document.querySelector('#title');
 var $notesInput = document.querySelector('#notes');
 
-var $motherIsListening = document.querySelector('form');
-$motherIsListening.addEventListener('submit', resetForm);
+var $motherIsListening = document.querySelector('#savebutton');
+$motherIsListening.addEventListener('click', resetForm);
 
 function resetForm(event) {
-
   // console.log(data.editing.EntryID);
   if (data.editing === null) {
     var newObject = {
@@ -143,6 +142,7 @@ var $entryForm = document.querySelector('#entry-form');
 var $entries = document.querySelector('#entries');
 
 function changeView(event) {
+  event.preventDefault();
   if (event.target.matches('#entries-anchor')) {
     $entryForm.className = 'container hidden';
     $entries.className = 'container entries-container';
@@ -207,4 +207,21 @@ function switchToEntryView(event) {
   //   $notesInput.value = data.editing.Notes;
   // }
 
+}
+// Issue #4 Below //
+var $toggledeletebutton = document.querySelector('#deletebutton');
+var $modal = document.querySelector('.modal-hidden');
+$toggledeletebutton.addEventListener('click', openModal);
+
+function openModal(event) {
+  $modal.className = 'modal-show';
+}
+
+var $togglecancelbutton = document.querySelector('#cancelbutton');
+// var $toggleconfirmbutton = document.querySelector('#confirmbutton');
+$togglecancelbutton.addEventListener('click', closeModal);
+// $toggleconfirmbutton.addEventListener('click', deleteEntry);
+
+function closeModal(event) {
+  $modal.className = 'modal-hidden';
 }

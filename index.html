@@ -58,7 +58,7 @@
           </div>
           <div class="column-quarter submitbutton">
 
-            <input type="submit" value="SAVE">
+            <input type="submit" id="savebutton" value="SAVE">
           </div>
         </div>
 
@@ -119,6 +119,15 @@
       </ul>
     </div>
   </main>
+  <div class="modal-hidden">
+    <div class="modal-box-show">
+      <p>Are you sure you want to delete this entry?</p>
+      <div class="modal-div">
+        <button class="cancel" id="cancelbutton">CANCEL</button>
+        <button class="no" id="confirmbutton">CONFIRM</button>
+      </div>
+    </div>
+  </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
